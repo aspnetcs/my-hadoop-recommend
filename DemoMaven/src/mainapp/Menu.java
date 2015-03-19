@@ -49,7 +49,7 @@ public class Menu extends JFrame {
 		JButton btnUser = new JButton("User");
 		btnUser.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				Login.main();
+				Login.main(null);
 			}
 		});
 		btnUser.setBounds(158, 152, 169, 25);

@@ -41,7 +41,7 @@ public class Login {
 	/**
 	 * Launch the application.
 	 */
-	public static void main() {
+	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -86,7 +86,7 @@ public class Login {
 					String pass=textField_1.getText();
 					if(uid.equals("admin")&&pass.equals("admin"))
 					{
-						AddMovieDetails.main();
+						HomePage.main();
 					}
 					else
 					{

@@ -41,7 +41,8 @@ public class HomePage {
 	/**
 	 * Launch the application.
 	 */
-	public static void main() {
+	public static void main() 
+	{
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -57,7 +58,8 @@ public class HomePage {
 	/**
 	 * Create the application.
 	 */
-	public HomePage() {
+	public HomePage() 
+	{
 		try {
 			initialize();
 		} catch (IOException e) {
@@ -143,6 +145,15 @@ public class HomePage {
 		});
 		btnNewButton_4.setBounds(280, 142, 275, 25);
 		frame.getContentPane().add(btnNewButton_4);
+		
+		JButton btnNewButton_5 = new JButton("Add movies");
+		btnNewButton_5.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				AddMovieDetails.main();
+			}
+		});
+		btnNewButton_5.setBounds(280, 465, 271, 25);
+		frame.getContentPane().add(btnNewButton_5);
 	}
 
 	protected void clusteringPerformed(ActionEvent arg0) {

@@ -15,6 +15,46 @@ import org.apache.mahout.cf.taste.similarity.*;
 import org.apache.mahout.cf.taste.impl.similarity.PearsonCorrelationSimilarity;
  
 public class CopyOfGenericUserBasedRecommender2 {
+	
+	static File file=new File("filepath.properties");
+	final static Properties properties=new Properties();
+	
+	public static String getMovieName(String movieid)
+	{
+		String movieName=new String();
+		FileInputStream inputStream;
+		try {
+			inputStream = new FileInputStream(file);
+		
+		properties.load(inputStream);
+		String fileName=properties.getProperty("newTitle");
+		
+		
+		BufferedReader in=new BufferedReader(new FileReader(fileName));
+		String line="";
+		while((line=in.readLine())!=null)
+		{
+			String title[]=line.split(",");
+			if(title.length>2)
+			{
+				if(title[0].equals(movieid))
+				{
+					
+					//builder.append("Movie Name:"+title[1]+"\t");
+					movieName=title[1]+"\t";
+					
+					break;
+				}
+			}
+			
+		}
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return movieName;
+	}
  
   public static StringBuilder main(String args) throws Exception {
       // Create a data source from the CSV file
@@ -50,7 +90,7 @@ public class CopyOfGenericUserBasedRecommender2 {
               for (RecommendedItem recommendedItem : itemRecommendations)
               {
                   System.out.format("Recommened Item Id %d. Strength of the preference: %f%n", recommendedItem.getItemID(), recommendedItem.getValue());
-                  sb.append("Recommened Item Id  "+recommendedItem.getItemID()+" \t   Strength of the preference:"+recommendedItem.getValue()+"\n");
+                  sb.append("Recommened Item Id  "+recommendedItem.getItemID()+" \t Movie Name  :"+getMovieName(Long.toString(recommendedItem.getItemID()))+"  Strength of the preference:"+recommendedItem.getValue()+"\n");
               }
           }
 		return sb;

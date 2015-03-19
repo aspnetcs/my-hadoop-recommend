@@ -42,9 +42,11 @@ import javax.swing.JTextArea;
 public class RateMovies {
 
 	private JFrame frame;
-	File file=new File("filepath.properties");
+	static File file=new File("filepath.properties");
 	static String userId="";
-
+	final static Properties properties=new Properties();
+	
+	
 	/**
 	 * Launch the application.
 	 */
@@ -92,7 +94,7 @@ public class RateMovies {
 		frame.getContentPane().setLayout(null);
 		HashSet<String> generes=new HashSet<String>();
 		
-		final Properties properties=new Properties();
+		
 		try {
 			FileInputStream inputStream=new FileInputStream(file);
 			properties.load(inputStream);
