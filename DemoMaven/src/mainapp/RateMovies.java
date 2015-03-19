@@ -13,6 +13,7 @@ import javax.swing.JOptionPane;
 
 import recommendation.CopyOfGenericUserBasedRecommender2;
 import user.UserInput;
+import useridmovieid.UserIdMovieIdPrepDriver;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -204,11 +205,13 @@ public class RateMovies {
 							bw.write(userId+","+items[0]+","+comboBox_2.getSelectedItem());
 							bw.write("\n");
 							bw.close();
-							JOptionPane.showMessageDialog(frame, "Values Submitted!!!!!!!!!");	
+							JOptionPane.showMessageDialog(frame, "Thanks for rating!!!!!!!!!");	
+							break;
 							}
 							else
 							{
 								JOptionPane.showMessageDialog(frame, "Values are already Submitted!!!!!!!!!");
+								break;
 							}
 							
 						}
@@ -291,7 +294,23 @@ public class RateMovies {
 		btnNewButton_2.setFont(new Font("URW Chancery L", Font.BOLD, 18));
 		btnNewButton_2.setForeground(Color.BLUE);
 		btnNewButton_2.addActionListener(new ActionListener() {
+			
+			
+		
 			public void actionPerformed(ActionEvent arg0) {
+				try {
+					UserIdMovieIdPrepDriver.main("start");
+				} catch (ClassNotFoundException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
 				try {
 					String args[]={};
 					new ViewRatedMovies().main(args);

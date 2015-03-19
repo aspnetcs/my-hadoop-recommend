@@ -50,7 +50,7 @@ public class CopyOfGenericUserBasedRecommender2 {
               for (RecommendedItem recommendedItem : itemRecommendations)
               {
                   System.out.format("Recommened Item Id %d. Strength of the preference: %f%n", recommendedItem.getItemID(), recommendedItem.getValue());
-                  sb.append("Recommened Item Id \t"+recommendedItem.getItemID()+" Strength of the preference:"+recommendedItem.getValue());
+                  sb.append("Recommened Item Id  "+recommendedItem.getItemID()+" \t   Strength of the preference:"+recommendedItem.getValue()+"\n");
               }
           }
 		return sb;
