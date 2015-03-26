@@ -83,6 +83,7 @@ public class CopyOfGenericUserBasedRecommender2 {
           if (itemRecommendations.isEmpty())
           {
               System.out.println("No recommendations for this user.");
+              sb.append("Sorry !!!!!!!!!!! No Similar Items Found For Your Id!!!!!!!!!!!");
           }
           else
           {

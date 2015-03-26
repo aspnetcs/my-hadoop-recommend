@@ -4,7 +4,6 @@ import java.io.IOException;
 
 import org.apache.hadoop.fs.Path;
 import org.apache.mahout.clustering.canopy.CanopyDriver;
-import org.apache.mahout.clustering.kmeans.KMeansDriver;
 import org.apache.mahout.common.distance.EuclideanDistanceMeasure;
 
 public class Clustering {

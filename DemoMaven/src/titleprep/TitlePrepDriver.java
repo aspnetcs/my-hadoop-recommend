@@ -24,7 +24,7 @@ public class TitlePrepDriver
 		Properties properties=new Properties();
 		properties.load(inputStream);
 		String TitleOutput=properties.getProperty("movieTitleOutput");
-		String titleInput=properties.getProperty("titleInput");
+		String titleInput=properties.getProperty("newTitle");
 		
 		File output=new File(TitleOutput);
 		if(output.exists())

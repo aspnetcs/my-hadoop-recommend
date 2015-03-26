@@ -199,7 +199,7 @@ public class RateMovies {
 						String items[]=line.split(",");
 						if(items.length>1)
 						{
-						if(comboBox_1.getSelectedItem().toString().contains(items[1]))
+						if(comboBox_1.getSelectedItem().toString().equals(items[1]))
 						{
 							if(!checkUserDetails(userId,items[0]))
 							{

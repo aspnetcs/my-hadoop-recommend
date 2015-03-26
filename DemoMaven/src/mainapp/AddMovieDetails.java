@@ -54,13 +54,16 @@ public class AddMovieDetails extends JFrame {
 	 */
 	public AddMovieDetails() throws IOException {
 		FileInputStream fileInput = new FileInputStream(file);
+		
 		Properties properties = new Properties();
 		properties.load(fileInput);
 		fileInput.close();
 		
 		final String usersfile=properties.getProperty("newTitle");
+		final String usersfile1=properties.getProperty("titleInput");
 		
 		BufferedReader br=new BufferedReader(new FileReader(usersfile));
+		BufferedReader br1=new BufferedReader(new FileReader(usersfile1));
 		String line="";
 		String lines[] = null;
 		while((line=br.readLine())!=null)
@@ -154,13 +157,16 @@ public class AddMovieDetails extends JFrame {
 					if(chckbxNewCheckBox_2.isSelected())
 						Genere.append("Drama|");
 					
-				BufferedWriter bw;
+				BufferedWriter bw,bw1;
 				try {
 					bw = new BufferedWriter(new FileWriter(usersfile,true));
-				
+					bw1 = new BufferedWriter(new FileWriter(usersfile1,true));
 				bw.write(id+","+MName+"("+Year+")"+","+Genere);
+				bw1.write(id+","+MName+"("+Year+")");
 				bw.write("\n");
+				bw1.write("\n");
 				bw.close();
+				bw1.close();
 				JOptionPane.showMessageDialog(contentPane, "Successfully added!!!!!!!!!");
 				
 				} catch (IOException e1) {
