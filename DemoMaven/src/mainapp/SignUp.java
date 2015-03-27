@@ -9,6 +9,7 @@ import javax.swing.ButtonGroup;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 
@@ -28,6 +29,7 @@ import javax.swing.JCheckBox;
 import javax.swing.JRadioButton;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
+
 import java.awt.Font;
 import java.awt.Color;
 
@@ -47,7 +49,7 @@ public class SignUp {
 	private JRadioButton rdbtnNewRadioButton_1;
 	private JTextField textField_1;
 	private JButton btnReset;
-
+	JComboBox comboBox = new JComboBox();
 	/**
 	 * Launch the application.
 	 */
@@ -155,7 +157,7 @@ public class SignUp {
 		id++;
 		textField.setText(new Integer(id).toString());
 		
-		JComboBox comboBox = new JComboBox();
+		
 		comboBox.setModel(new DefaultComboBoxModel(new String[] {"\"other\" or not specified", "academic/educator", "artist", "clerical/admin", "college/grad student", "customer service", "doctor/health care", "executive/managerial", "farmer", "homemaker", "K-12 student", "lawyer", "programmer", "sales/marketing\"", "self-employed", "technician/engineer", "tradesman/craftsman", "unemployed", "writer"}));
 		comboBox.setBounds(348, 335, 246, 24);
 		frame.getContentPane().add(comboBox);
@@ -164,11 +166,11 @@ public class SignUp {
 		lblOccupation.setBounds(145, 340, 93, 15);
 		frame.getContentPane().add(lblOccupation);
 		
-		JLabel lblNewLabel_1 = new JLabel("Zip Code");
-		lblNewLabel_1.setBounds(145, 405, 70, 15);
+		JLabel lblNewLabel_1 = new JLabel("Password");
+		lblNewLabel_1.setBounds(145, 405, 81, 15);
 		frame.getContentPane().add(lblNewLabel_1);
 		
-		textField_1 = new JTextField();
+		textField_1 = new JPasswordField();
 		textField_1.setBounds(347, 403, 149, 19);
 		frame.getContentPane().add(textField_1);
 		textField_1.setColumns(10);
@@ -214,6 +216,7 @@ public class SignUp {
 		
 			
 		String Age=textField_2.getText();
+		String password=textField_1.getText();
 		try {
 			if(rdbtnNewRadioButton.isSelected())
 			{
@@ -224,7 +227,7 @@ public class SignUp {
 				gender="F";
 			}
 			BufferedWriter bw=new BufferedWriter(new FileWriter(usersfile,true));
-			bw.write(Uid+","+gender+",");
+			bw.write(Uid+","+gender+","+comboBox.getSelectedIndex()+","+Age+","+password);
 			bw.write("\n");
 			bw.close();
 			JOptionPane.showMessageDialog(frame, "Successfully signed up!!!!!!!!!");

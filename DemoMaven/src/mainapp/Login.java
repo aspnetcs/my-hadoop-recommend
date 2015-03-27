@@ -100,7 +100,7 @@ public class Login {
 				while((line=br.readLine())!=null)
 				{
 				String[] details=line.split(",");
-				if((details[0].equals(uid))&&(details[1].equals(pass)))
+				if((details[0].equals(uid))&&(details[4].equals(pass)))
 				{
 					userflag=true;
 					break;
