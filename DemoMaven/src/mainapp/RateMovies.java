@@ -156,7 +156,7 @@ public class RateMovies {
 						if(line.contains(selectedItem))
 						{
 							
-							comboBox_1.addItem(line.split(",")[1]);
+							comboBox_1.addItem(line.split(",")[0]+","+line.split(",")[1]);
 						}
 					}
 				}
@@ -199,7 +199,7 @@ public class RateMovies {
 						String items[]=line.split(",");
 						if(items.length>1)
 						{
-						if(comboBox_1.getSelectedItem().toString().equals(items[1]))
+						if(comboBox_1.getSelectedItem().toString().split(",")[1].equals(items[1]))
 						{
 							if(!checkUserDetails(userId,items[0]))
 							{
