@@ -216,6 +216,8 @@ public class SignUp {
 		
 			
 		String Age=textField_2.getText();
+		if(ValidateAge.main(Age))
+		{
 		String password=textField_1.getText();
 		try {
 			if(rdbtnNewRadioButton.isSelected())
@@ -239,6 +241,12 @@ public class SignUp {
 		}
 		
 		}
+		else
+		{
+			JOptionPane.showMessageDialog(frame, "Enter a valid age", "Validation Error",JOptionPane.ERROR_MESSAGE);
+		}
+			}
+		
 			}
 		});
 	
